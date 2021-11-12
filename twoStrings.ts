@@ -4,17 +4,20 @@ function twoStrings(s1: string, s2: string): string {
   const shorter: string = s1.length < s2.length ? s1 : s2;
   const longer: string = s1.length > s2.length ? s1 : s2;
 
-  const shorterArray: string[] = [];
+  const shorterArray: Set<String> = new Set();
   for (let i = 0; i < shorter.length; i++) {
-    shorterArray.push(shorter[i]);
+    shorterArray.add(shorter[i]);
   }
 
-  shorterArray.every((v) => {
-    if (longer.includes(v)) {
+  const longerArray: Set<String> = new Set();
+  for (let i = 0; i < longer.length; i++) {
+    longerArray.add(longer[i]);
+  }
+
+  shorterArray.forEach((v) => {
+    if (longerArray.has(v)) {
       result = "YES";
-      return false;
     }
-    return true;
   });
 
   return result;
