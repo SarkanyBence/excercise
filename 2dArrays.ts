@@ -9,11 +9,6 @@ function hourGlass(matrix: number[][]): number {
       subMatrix.push(matrix[j].slice(i, i + 3));
       subMatrix.push(matrix[j + 1].slice(i, i + 3));
       subMatrix.push(matrix[j + 2].slice(i, i + 3));
-
-      //   console.log(matrix[j].slice(i, i + 3));
-      //   console.log(matrix[j + 1].slice(i, i + 3));
-      //   console.log(matrix[j + 2].slice(i, i + 3));
-      //   console.log("-----", sums);
       sums.push(returnSum(subMatrix));
     }
   }
